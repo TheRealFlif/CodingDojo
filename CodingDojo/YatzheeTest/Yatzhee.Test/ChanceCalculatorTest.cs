@@ -1,6 +1,6 @@
 namespace Yatzhee.Test
 {
-using NUnit.Framework;
+    using NUnit.Framework;
 
     public class ChanceCalculatorTest
     {
