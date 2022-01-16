@@ -23,5 +23,24 @@
             //Assert
             Assert.That(actual, Is.EqualTo(0));
         }
+        
+        [Test]
+        public void Calculate_1_1_3_4_5_Returns2()
+        {
+            //Arrange
+            var sut = new PairCalculator();
+            var roll = new Roll()
+                .AddDie(Die.One())
+                .AddDie(Die.One())
+                .AddDie(Die.Three())
+                .AddDie(Die.Four())
+                .AddDie(Die.Five());
+            
+            //Act
+            var actual = sut.Calculate(roll);
+            
+            //Assert
+            Assert.That(actual, Is.EqualTo(2));
+        }
     }
 }
