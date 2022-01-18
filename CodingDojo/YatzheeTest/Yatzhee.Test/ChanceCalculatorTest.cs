@@ -1,4 +1,4 @@
-namespace Yatzhee.Test
+namespace Yatzhee
 {
     using NUnit.Framework;
 
