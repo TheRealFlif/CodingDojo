@@ -1,4 +1,6 @@
+using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using NUnit.Framework;
+using Yatzhee;
 
 namespace YatzheeTest
 {
@@ -7,12 +9,21 @@ namespace YatzheeTest
         [SetUp]
         public void Setup()
         {
+
         }
 
         [Test]
-        public void Test1()
+        public void NewRoll_5Dices()
         {
-            Assert.Pass();
+            // Arrangera
+            var roll = new Roll();
+
+            // Agera
+            var numberOfDices = roll.Dices.Count;
+
+            // Attestera
+            Assert.That(numberOfDices, Is.EqualTo(5));
         }
+
     }
 }
