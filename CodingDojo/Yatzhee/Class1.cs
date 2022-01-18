@@ -3,6 +3,7 @@
 namespace Yatzhee
 {
     public class Class1
-    {
+    { 
+
     }
 }
