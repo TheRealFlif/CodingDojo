@@ -22,6 +22,19 @@ namespace Yatzhee
             //Assert 
             Assert.That(actual, Is.EqualTo(0));
         }
+        [Test]
+        public void Calculate_1_2_6_6_6_Returns18()
+        {
+            //Arrange
+            var roll = new Roll(1, 2, 6, 6, 6);
+            var sut = new ThreeKindCalculator();
+
+            //Act
+            var actual = sut.Calculate(roll);
+
+            //Assert 
+            Assert.That(actual, Is.EqualTo(18));
+        }
 
     }
 }

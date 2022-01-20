@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Yatzhee
@@ -12,13 +13,9 @@ namespace Yatzhee
 
             for (int i = 6; i > 0; i--)
             {
-                //var resultat = roll.Dices.Count(d => d.Number == i);
-                //if (resultat >= 2)
-                //{
-                //    if (score > 0)
-                //        return score + i * 2;
-                //    score += i * 2;
-                //}
+                var resultat = roll.Dices.Count(d => d.Number == i);
+                if (resultat >= 3)
+                    return i * 3;
             }
 
             return 0;
