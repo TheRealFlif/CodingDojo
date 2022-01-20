@@ -13,7 +13,7 @@ namespace YatzheeTest
         }
 
         [Test]
-        public void Read_Die()
+        public void Read_Die2()
         {
             // Arrangera
             var die = new Die(2);
@@ -25,7 +25,7 @@ namespace YatzheeTest
             Assert.That(dots, Is.EqualTo(2));
         }
         [Test]
-        public void Read_Die2()
+        public void Read_Die3()
         {
             // Arrangera
             var die = new Die(3);

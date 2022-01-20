@@ -16,7 +16,7 @@ namespace YatzheeTest
         public void NewRoll_5Dices()
         {
             // Arrangera
-            var roll = new Roll();
+            var roll = new Roll(1,1,1,1,1);
 
             // Agera
             var numberOfDices = roll.Dices.Count;
@@ -24,6 +24,29 @@ namespace YatzheeTest
             // Attestera
             Assert.That(numberOfDices, Is.EqualTo(5));
         }
+        [Test]
+        public void Newroll_Pair()
+        {
+            // Arrangera
+            var roll = new Roll(2,2,2,2,2);
 
+            // Agera
+            int pairScore = roll.PairScore();
+
+            // Attestera
+            Assert.That(pairScore, Is.EqualTo(4));
+        }
+        [Test]
+        public void Newroll_Pair2()
+        {
+            // Arrangera
+            var roll = new Roll(6,6,6,6,6);
+
+            // Agera
+            int pairScore = roll.PairScore();
+
+            // Attestera
+            Assert.That(pairScore, Is.EqualTo(12));
+        }
     }
 }
