@@ -2,8 +2,11 @@
 
 namespace Yatzhee
 {
-    public class Class1
-    { 
-
+    public class TwoPairCalculator
+    {
+        public int Calculate(Roll roll)
+        {
+            return 0;
+        }
     }
 }
