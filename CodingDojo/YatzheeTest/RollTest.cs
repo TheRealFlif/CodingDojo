@@ -4,7 +4,7 @@ using Yatzhee;
 
 namespace YatzheeTest
 {
-    public class Tests
+    public class RollTest
     {
         [SetUp]
         public void Setup()

@@ -9,11 +9,11 @@ namespace Yatzhee
         {
             Dices = new List<Die>()
             {
-                new Die(),
-                new Die(),
-                new Die(),
-                new Die(),
-                new Die()
+                new Die(2),
+                new Die(2),
+                new Die(2),
+                new Die(2),
+                new Die(2)
             };
         }
 
