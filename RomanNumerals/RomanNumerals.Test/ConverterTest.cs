@@ -108,6 +108,11 @@ public class ConverterTest
                 yield return new TestCaseData(16).Returns("XVI");
                 yield return new TestCaseData(17).Returns("XVII");
                 yield return new TestCaseData(18).Returns("XVIII");
+
+                yield return new TestCaseData(1000).Returns("M");
+                yield return new TestCaseData(2000).Returns("MM");
+                yield return new TestCaseData(3000).Returns("MMM");
+                yield return new TestCaseData(4000).Returns("MMMM");
             }
         }
     }
