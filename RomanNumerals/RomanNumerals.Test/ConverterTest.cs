@@ -12,10 +12,13 @@ namespace RomanNumerals
         {
             //Arrange
             var sut = new Converter();
+            var number = 1;
 
             //Act
+            var actual = sut.Convert(number);
 
             //Assert
+            Assert.That(actual, Is.EqualTo("I"));
         }
     }
 }
