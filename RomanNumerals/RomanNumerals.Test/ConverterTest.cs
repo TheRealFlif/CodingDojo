@@ -77,4 +77,28 @@ public class ConverterTest
         //Assert
         Assert.That(actual, Is.EqualTo("MI"));
     }
+
+    [TestCaseSource(typeof(TestData), nameof(TestData.Numbers))]
+    public string Convert_(int number)
+    {
+        return new Converter().Convert(number);
+    }
+
+    private static class TestData
+    {
+        public static IEnumerable<TestCaseData> Numbers
+        {
+            get
+            {
+                yield return new TestCaseData(1).Returns("I");
+                yield return new TestCaseData(2).Returns("II");
+                yield return new TestCaseData(3).Returns("III");
+                yield return new TestCaseData(4).Returns("IV");
+                yield return new TestCaseData(5).Returns("V");
+                yield return new TestCaseData(6).Returns("VI");
+                yield return new TestCaseData(7).Returns("VII");
+                yield return new TestCaseData(8).Returns("VIII");
+            }
+        }
+    }
 }
