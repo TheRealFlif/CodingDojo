@@ -90,7 +90,7 @@ public class ConverterTest
         {
             get
             {
-                yield return new TestCaseData(1).Returns("I");
+                yield return new TestCaseData(1).Returns("I"); 
                 yield return new TestCaseData(2).Returns("II");
                 yield return new TestCaseData(3).Returns("III");
                 yield return new TestCaseData(4).Returns("IV");
@@ -98,6 +98,7 @@ public class ConverterTest
                 yield return new TestCaseData(6).Returns("VI");
                 yield return new TestCaseData(7).Returns("VII");
                 yield return new TestCaseData(8).Returns("VIII");
+                yield return new TestCaseData(9).Returns("IX");
             }
         }
     }
