@@ -8,9 +8,22 @@ public class Converter
         var thousands = new string('M', numberOfThousands);
         var adjustedNumber = number - numberOfThousands * 1000;
 
-        var numberOfOnes = NumberOfOnes(adjustedNumber);
-        var ones = new string('I', numberOfOnes);
-        
+        var ones = string.Empty;
+        if (adjustedNumber > 3)
+        {
+            switch (adjustedNumber)
+            {
+                case 4:
+                    ones = "IV";
+                    adjustedNumber -= 4;
+                    break;
+            }
+        }
+        else
+        {
+            var numberOfOnes = NumberOfOnes(adjustedNumber);
+            ones = new string('I', numberOfOnes);
+        }
         return thousands + ones;
     }
 

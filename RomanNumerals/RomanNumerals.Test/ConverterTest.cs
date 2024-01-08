@@ -37,6 +37,21 @@ public class ConverterTest
     }
 
     [Test]
+    public void Convert_4_Returns_IV()
+    {
+        //Arrange
+        var sut = new Converter();
+        var number = 4;
+
+        //Act
+        var actual = sut.Convert(number);
+
+        //Assert
+        Assert.That(actual, Is.EqualTo("IV"));
+    }
+
+
+    [Test]
     public void Convert_1001_Returns_MI()
     {
         //Arrange
