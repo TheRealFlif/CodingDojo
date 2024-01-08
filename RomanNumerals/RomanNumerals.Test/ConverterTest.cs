@@ -50,6 +50,19 @@ public class ConverterTest
         Assert.That(actual, Is.EqualTo("IV"));
     }
 
+    [Test]
+    public void Convert_5_Returns_V()
+    {
+        //Arrange
+        var sut = new Converter();
+        var number = 5;
+
+        //Act
+        var actual = sut.Convert(number);
+
+        //Assert
+        Assert.That(actual, Is.EqualTo("V"));
+    }
 
     [Test]
     public void Convert_1001_Returns_MI()

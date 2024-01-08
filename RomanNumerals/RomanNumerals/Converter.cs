@@ -8,23 +8,27 @@ public class Converter
         var thousands = new string('M', numberOfThousands);
         var adjustedNumber = number - numberOfThousands * 1000;
 
-        var ones = string.Empty;
-        if (adjustedNumber > 3)
+        var five = string.Empty;
+        if (adjustedNumber > 3 && adjustedNumber < 9)
         {
             switch (adjustedNumber)
             {
                 case 4:
-                    ones = "IV";
-                    adjustedNumber -= 4;
+                    five = "IV";
+                    adjustedNumber = 0;
+                    break;
+
+                default:
+                    five = "V";
+                    adjustedNumber -= 5;
                     break;
             }
         }
-        else
-        {
-            var numberOfOnes = NumberOfOnes(adjustedNumber);
-            ones = new string('I', numberOfOnes);
-        }
-        return thousands + ones;
+
+        var numberOfOnes = NumberOfOnes(adjustedNumber);
+        var ones = new string('I', numberOfOnes);
+
+        return thousands + five + ones;
     }
 
     private int NumberOfOnes(int number)
