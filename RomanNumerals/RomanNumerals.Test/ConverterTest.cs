@@ -27,12 +27,26 @@ public class ConverterTest
     {
         //Arrange
         var sut = new Converter();
-        var number = 3;
+        var number = 2;
 
         //Act
         var actual = sut.Convert(number);
 
         //Assert
         Assert.That(actual, Is.EqualTo("II"));
+    }
+
+    [Test]
+    public void Convert_1001_Returns_MI()
+    {
+        //Arrange
+        var sut = new Converter();
+        var number = 1001;
+
+        //Act
+        var actual = sut.Convert(number);
+
+        //Assert
+        Assert.That(actual, Is.EqualTo("MI"));
     }
 }
