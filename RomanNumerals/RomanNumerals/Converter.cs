@@ -9,12 +9,17 @@ public class Converter
         var adjustedNumber = number - numberOfThousands * 1000;
 
         var ten = string.Empty;
-        if(adjustedNumber >= 9 ) {
+        if(adjustedNumber >= 9 && adjustedNumber <=13) {
             switch(adjustedNumber )
             {
                 case 9:
                     ten = "IX";
                     adjustedNumber = 0;
+                    break;
+
+                default:
+                    ten = "X";
+                    adjustedNumber -= 10;
                     break;
             }
         }

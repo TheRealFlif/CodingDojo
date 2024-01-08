@@ -99,6 +99,10 @@ public class ConverterTest
                 yield return new TestCaseData(7).Returns("VII");
                 yield return new TestCaseData(8).Returns("VIII");
                 yield return new TestCaseData(9).Returns("IX");
+                yield return new TestCaseData(10).Returns("X");
+                yield return new TestCaseData(11).Returns("XI");
+                yield return new TestCaseData(12).Returns("XII");
+                yield return new TestCaseData(13).Returns("XIII");
             }
         }
     }
