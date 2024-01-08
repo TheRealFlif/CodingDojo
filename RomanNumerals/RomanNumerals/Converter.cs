@@ -1,11 +1,13 @@
-﻿
-namespace RomanNumerals
+﻿namespace RomanNumerals;
+
+public class Converter
 {
-    public class Converter
+    public object Convert(int number)
     {
-        public object Convert(int number)
-        {
-            return "I";
-        }
+        var returnValue = number == 1
+            ? "I"
+            : "II";
+
+        return returnValue;
     }
 }
