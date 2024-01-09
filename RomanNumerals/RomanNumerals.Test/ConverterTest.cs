@@ -90,7 +90,7 @@ public class ConverterTest
         {
             get
             {
-                yield return new TestCaseData(1).Returns("I").SetName("1 -> I"); 
+                yield return new TestCaseData(1).Returns("I").SetName("1 -> I");
                 yield return new TestCaseData(2).Returns("II").SetName("2 -> II");
                 yield return new TestCaseData(3).Returns("III").SetName("3 -> III");
                 yield return new TestCaseData(4).Returns("IV").SetName("4 -> IV");
