@@ -79,7 +79,7 @@ public class ConverterTest
     }
 
     [TestCaseSource(typeof(TestData), nameof(TestData.Numbers))]
-    public string Convert_(int number)
+    public string Convert(int number)
     {
         return new Converter().Convert(number);
     }
@@ -127,6 +127,16 @@ public class ConverterTest
                 yield return new TestCaseData(70).Returns("LXX").SetName("70 -> LXX");
                 yield return new TestCaseData(80).Returns("LXXX").SetName("80 -> LXXX");
                 yield return new TestCaseData(90).Returns("XC").SetName("90 -> XC");
+
+                yield return new TestCaseData(100).Returns("C").SetName("100 -> C");
+                yield return new TestCaseData(200).Returns("CC").SetName("200 -> CC");
+                yield return new TestCaseData(300).Returns("CCC").SetName("300 -> CCC");
+                yield return new TestCaseData(400).Returns("CD").SetName("400 -> CD");
+                yield return new TestCaseData(500).Returns("D").SetName("500 -> D");
+                yield return new TestCaseData(600).Returns("DC").SetName("600 -> DC");
+                yield return new TestCaseData(700).Returns("DCC").SetName("700 -> DCC");
+                yield return new TestCaseData(800).Returns("DCCC").SetName("800 -> DCCC");
+                yield return new TestCaseData(900).Returns("CM").SetName("900 -> CM");
 
                 yield return new TestCaseData(1000).Returns("M").SetName("1000 -> M");
                 yield return new TestCaseData(2000).Returns("MM").SetName("2000 -> MM");

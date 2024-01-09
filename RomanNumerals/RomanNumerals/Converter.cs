@@ -8,12 +8,14 @@ public class Converter
         var thousands = new string('M', numberOfThousands);
         var adjustedNumber = number - numberOfThousands * 1000;
 
-        var unitDigit = HandleUnitDigit(adjustedNumber, out var ones);
+        var unitDigit = HandleUnitDigit(adjustedNumber, out var one);
         adjustedNumber -= unitDigit;
         var tens = HandleTensDigit(adjustedNumber, out var ten);
         adjustedNumber -= tens;
+        var hundreds = HandleHundredsDigit(adjustedNumber, out var hundred);
+        adjustedNumber -= hundreds;
 
-        return thousands + ten + ones;
+        return thousands + hundred + ten + one;
     }
 
     /// <summary>
@@ -43,7 +45,7 @@ public class Converter
     }
 
     /// <summary>
-    /// Converts the unit digit to roman digits and returns the value of the roman digits
+    /// Converts the ten digit to roman digits and returns the value of the roman digits
     /// </summary>
     /// <param name="number">The unadjusted number</param>
     /// <param name="romanDigitCharacters">The roman digit that represent the unit digit</param>
@@ -67,6 +69,34 @@ public class Converter
         };
 
         return tenDigit;
+    }
+
+    /// <summary>
+    /// Converts the hundred digit to roman digits and returns the value of the roman digits
+    /// </summary>
+    /// <param name="number">The unadjusted number</param>
+    /// <param name="romanDigitCharacters">The roman digit that represent the unit digit</param>
+    /// <returns>The value of the roman digits</returns>
+    private int HandleHundredsDigit(int number, out string romanDigitCharacters)
+    {
+        var unitDigit = number % 10;
+        var tenDigit = (number - unitDigit) % 100;
+        var hundredDigit = (number - unitDigit-tenDigit) % 1000;
+        romanDigitCharacters = hundredDigit switch
+        {
+            100 => "C",
+            200 => "CC",
+            300 => "CCC",
+            400 => "CD",
+            500 => "D",
+            600 => "DC",
+            700 => "DCC",
+            800 => "DCCC",
+            900 => "CM",
+            _ => ""
+        };
+
+        return hundredDigit;
     }
 
     private int NumberOfThousands(int number)
