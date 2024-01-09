@@ -116,11 +116,3 @@ public class Converter
         return returnValue;
     }
 }
-
-public class RomanNumeraltConverter
-{
-    public int Convert(string romanNumeral)
-    {
-        return 0;
-    }
-}
