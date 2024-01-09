@@ -4,18 +4,17 @@ public class Converter
 {
     public string Convert(int number)
     {
-        var numberOfThousands = NumberOfThousands(number);
-        var thousands = new string('M', numberOfThousands);
-        var adjustedNumber = number - numberOfThousands * 1000;
-
+        var adjustedNumber = number;
         var unitDigit = HandleUnitDigit(adjustedNumber, out var one);
         adjustedNumber -= unitDigit;
         var tens = HandleTensDigit(adjustedNumber, out var ten);
         adjustedNumber -= tens;
         var hundreds = HandleHundredsDigit(adjustedNumber, out var hundred);
         adjustedNumber -= hundreds;
+        var thousands = HandleThousandsDigit(adjustedNumber, out var thousand);
+        adjustedNumber -= thousands;
 
-        return thousands + hundred + ten + one;
+        return thousand + hundred + ten + one;
     }
 
     /// <summary>
@@ -48,7 +47,7 @@ public class Converter
     /// Converts the ten digit to roman digits and returns the value of the roman digits
     /// </summary>
     /// <param name="number">The unadjusted number</param>
-    /// <param name="romanDigitCharacters">The roman digit that represent the unit digit</param>
+    /// <param name="romanDigitCharacters">The roman digit that represent the ten digit</param>
     /// <returns>The value of the roman digits</returns>
     private int HandleTensDigit(int number, out string romanDigitCharacters)
     {
@@ -75,7 +74,7 @@ public class Converter
     /// Converts the hundred digit to roman digits and returns the value of the roman digits
     /// </summary>
     /// <param name="number">The unadjusted number</param>
-    /// <param name="romanDigitCharacters">The roman digit that represent the unit digit</param>
+    /// <param name="romanDigitCharacters">The roman digit that represent the hundred digit</param>
     /// <returns>The value of the roman digits</returns>
     private int HandleHundredsDigit(int number, out string romanDigitCharacters)
     {
@@ -99,8 +98,21 @@ public class Converter
         return hundredDigit;
     }
 
-    private int NumberOfThousands(int number)
+    /// <summary>
+    /// Converts the thousands digit to roman digits and returns the value of the roman digits
+    /// </summary>
+    /// <param name="number">The unadjusted number</param>
+    /// <param name="romanDigitCharacters">The roman digit that represent the thounsand digit</param>
+    /// <returns>The value of the roman digits</returns>
+    private int HandleThousandsDigit(int number, out string romanDigitCharacters)
     {
-        return number / 1000;
+        var unitDigit = number % 10;
+        var tenDigit = (number - unitDigit) % 100;
+        var hundredDigit = (number - unitDigit - tenDigit) % 1000;
+        var returnValue = (number - unitDigit - tenDigit - hundredDigit) / 1000;
+
+        romanDigitCharacters = new string('M', returnValue);
+
+        return returnValue;
     }
 }

@@ -142,6 +142,8 @@ public class ConverterTest
                 yield return new TestCaseData(2000).Returns("MM").SetName("2000 -> MM");
                 yield return new TestCaseData(3000).Returns("MMM").SetName("3000 -> MMM");
                 yield return new TestCaseData(4000).Returns("MMMM");
+
+                yield return new TestCaseData(4444).Returns("MMMMCDXLIV").SetName("4444 -> MMMMCDXLIV");
             }
         }
     }
