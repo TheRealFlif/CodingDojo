@@ -8,52 +8,12 @@ public class Converter
         var thousands = new string('M', numberOfThousands);
         var adjustedNumber = number - numberOfThousands * 1000;
 
-        var fifties = string.Empty;
-        if (adjustedNumber >= 19 && adjustedNumber < 40)
-        {
-            var numberOfTens = NumberOfTens(adjustedNumber);
-            fifties = new string('X', numberOfTens);
-            adjustedNumber -= numberOfTens * 10;
-        }
+        var unitDigit = HandleUnitDigit(adjustedNumber, out var ones);
+        adjustedNumber -= unitDigit;
+        var tens = HandleTensDigit(adjustedNumber, out var ten);
+        adjustedNumber -= tens;
 
-
-
-        var ten = string.Empty;
-        if(adjustedNumber >= 9 && adjustedNumber <=18) {
-            switch(adjustedNumber )
-            {
-                case 9:
-                    ten = "IX";
-                    adjustedNumber = 0;
-                    break;
-
-                default:
-                    ten = "X";
-                    adjustedNumber -= 10;
-                    break;
-            }
-        }
-
-        var five = string.Empty;
-        if (adjustedNumber > 3 && adjustedNumber < 9)
-        {
-            switch (adjustedNumber)
-            {
-                case 4:
-                    five = "IV";
-                    adjustedNumber = 0;
-                    break;
-
-                default:
-                    five = "V";
-                    adjustedNumber -= 5;
-                    break;
-            }
-        }
-
-        _ = HandleUnitDigit(adjustedNumber, out var ones);
-
-        return thousands + fifties + ten + five + ones;
+        return thousands + ten + ones;
     }
 
     /// <summary>
@@ -82,9 +42,31 @@ public class Converter
         return unitDigit;
     }
 
-    private int NumberOfTens(int number)
+    /// <summary>
+    /// Converts the unit digit to roman digits and returns the value of the roman digits
+    /// </summary>
+    /// <param name="number">The unadjusted number</param>
+    /// <param name="romanDigitCharacters">The roman digit that represent the unit digit</param>
+    /// <returns>The value of the roman digits</returns>
+    private int HandleTensDigit(int number, out string romanDigitCharacters)
     {
-        return number / 10;
+        var unitDigit = number % 10;
+        var tenDigit = (number - unitDigit) % 100;
+        romanDigitCharacters = tenDigit switch
+        {
+            10 => "X",
+            20 => "XX",
+            30 => "XXX",
+            40 => "XL",
+            50 => "L",
+            60 => "LX",
+            70 => "LXX",
+            80 => "LXXX",
+            90 => "XC",
+            _ => ""
+        };
+
+        return tenDigit;
     }
 
     private int NumberOfThousands(int number)
