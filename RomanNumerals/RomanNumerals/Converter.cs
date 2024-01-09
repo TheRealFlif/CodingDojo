@@ -51,15 +51,35 @@ public class Converter
             }
         }
 
-        var numberOfOnes = NumberOfOnes(adjustedNumber);
-        var ones = new string('I', numberOfOnes);
+        _ = HandleUnitDigit(adjustedNumber, out var ones);
 
         return thousands + fifties + ten + five + ones;
     }
 
-    private int NumberOfOnes(int number)
+    /// <summary>
+    /// Converts the unit digit to roman digits and returns the value of the roman digits
+    /// </summary>
+    /// <param name="number">The unadjusted number</param>
+    /// <param name="romanDigitCharacters">The roman digit that represent the unit digit</param>
+    /// <returns>The value of the roman digits</returns>
+    private int HandleUnitDigit(int number, out string romanDigitCharacters)
     {
-        return number > 3 ? 0 : number;
+        var unitDigit = number % 10;
+        romanDigitCharacters = unitDigit switch
+        { 
+            1 => "I",
+            2 => "II",
+            3 => "III",
+            4 => "IV",
+            5 => "V",
+            6 => "VI",
+            7 => "VII",
+            8 => "VIII",
+            9 => "IX",
+            _ => ""
+        };
+
+        return unitDigit;
     }
 
     private int NumberOfTens(int number)
