@@ -43,6 +43,19 @@ public class RomanCalculatorTests
                 yield return new TestCaseData("III", "III").Returns("VI").SetName("III + III = VI");
                 yield return new TestCaseData("IV", "IV").Returns("VIII").SetName("IV + IV = VIII");
                 yield return new TestCaseData("V", "IV").Returns("IX").SetName("V + IV = IX");
+
+                yield return new TestCaseData("V", "V").Returns("X").SetName("V + V = X");
+                yield return new TestCaseData("IV", "VI").Returns("X").SetName("IV + VI = X");
+                yield return new TestCaseData("V", "VI").Returns("XI").SetName("V + VI = XI");
+
+                yield return new TestCaseData("X", "X").Returns("XX").SetName("X + X = XX");
+                yield return new TestCaseData("XX", "X").Returns("XXX").SetName("XX + X = XXX");
+                yield return new TestCaseData("XX", "XX").Returns("XL").SetName("XX + XX = XL");
+                yield return new TestCaseData("XXX", "XX").Returns("L").SetName("XXX + XX = L");
+                yield return new TestCaseData("XXX", "XXX").Returns("LX").SetName("XXX + XXX = LX");
+                yield return new TestCaseData("XL", "XXX").Returns("LXX").SetName("XL + XXX = LXX");
+                yield return new TestCaseData("XL", "XL").Returns("LXXX").SetName("XL + XL = LXXX");
+                yield return new TestCaseData("XL", "L").Returns("XC").SetName("XL + L = XC");
             }
         }
     }
