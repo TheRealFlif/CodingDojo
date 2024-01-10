@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanCalculator.Test", "RomanCalculator.Test\RomanCalculator.Test.csproj", "{D89004A4-8B46-4DA3-B575-AF61FF774078}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanCalculator", "RomanCalculator\RomanCalculator.csproj", "{6CF3D006-5F95-4408-AE19-801BE1A18105}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D89004A4-8B46-4DA3-B575-AF61FF774078}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D89004A4-8B46-4DA3-B575-AF61FF774078}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D89004A4-8B46-4DA3-B575-AF61FF774078}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D89004A4-8B46-4DA3-B575-AF61FF774078}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CF3D006-5F95-4408-AE19-801BE1A18105}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CF3D006-5F95-4408-AE19-801BE1A18105}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CF3D006-5F95-4408-AE19-801BE1A18105}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CF3D006-5F95-4408-AE19-801BE1A18105}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
