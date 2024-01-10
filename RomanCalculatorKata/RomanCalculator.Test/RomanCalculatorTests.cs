@@ -2,11 +2,6 @@ namespace RomanCalculator;
 
 public class RomanCalculatorTests
 {
-    [SetUp]
-    public void Setup()
-    {
-    }
-
     [Test]
     public void Add_EmptyAndEmpty_ReturnsEmpty()
     {
@@ -19,4 +14,5 @@ public class RomanCalculatorTests
         //Assert
         Assert.That(actual, Is.EqualTo(string.Empty));
     }
+
 }
