@@ -56,6 +56,9 @@ public class RomanCalculatorTests
                 yield return new TestCaseData("XL", "XXX").Returns("LXX").SetName("XL + XXX = LXX");
                 yield return new TestCaseData("XL", "XL").Returns("LXXX").SetName("XL + XL = LXXX");
                 yield return new TestCaseData("XL", "L").Returns("XC").SetName("XL + L = XC");
+
+
+                yield return new TestCaseData("XLIX", "II").Returns("LI").SetName("XLIX + II = LI");
             }
         }
     }
