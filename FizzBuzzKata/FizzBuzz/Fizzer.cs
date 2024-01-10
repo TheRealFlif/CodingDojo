@@ -4,7 +4,9 @@
     {
         public string Scramble(int value)
         {
-            return value.ToString();
+            return value % 3 == 0
+                ? "Fizz"
+                : value.ToString();
         }
     }
 }
