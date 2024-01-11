@@ -13,7 +13,7 @@
             this.scrambledValue = scrambledValue;
         }
 
-        public string Scramble(int value)
+        public virtual string Scramble(int value)
         {
             var scramble =
                value % valueToScramble == 0 ||
