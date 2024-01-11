@@ -3,6 +3,14 @@
 public class AccountCharacter
 {
     public AccountCharacter(
+        string[] rows)
+    {
+        FirstRow = rows[0];
+        SecondRow = rows[1];
+        ThirdRow = rows[2];
+    }
+
+    public AccountCharacter(
         string firstRow,
         string secondRow,
         string thirdRow)
@@ -30,24 +38,44 @@ public class AccountCharacter
         };
     }
 
+    public static Dictionary<int, string[]> StringForNumber
+    {
+        get
+        {
+            return new Dictionary<int, string[]> {
+                {0,  new[] { " _ ", "| |", "|_|" } },
+                {1,  new[] { "   ", "  |", "  |" } },
+                {2,  new[] { " _ ", " _|", "|_ " } },
+                {3,  new[] { " _ ", " _|", " _|" } },
+                {4,  new[] { "   ", "|_|", "  |" } },
+                {5,  new[] { " _ ", "|_ ", " _|" } },
+                {6,  new[] { " _ ", "|_ ", "|_|" } },
+                {7,  new[] { " _ ", "  |", "  |" } },
+                {8,  new[] { " _ ", "|_|", "|_|" } },
+                {9,  new[] { " _ ", "|_|", " _|" } }
+            };
+        }
+    }
+
     public static AccountCharacter Blank() => new AccountCharacter("   ", "   ", "   ");
-    public static AccountCharacter Zero() => new AccountCharacter(" _ ", "| |", "|_|");
-    public static AccountCharacter One() =>  new AccountCharacter("   ", "  |", "  |");
-    public static AccountCharacter Two() => new AccountCharacter(" _ ", " _|", "|_ ");
-    public static AccountCharacter Three() => new AccountCharacter(" _ ", " _|", " _|");
-    public static AccountCharacter Four() => new AccountCharacter("   ", "|_|", "  |");
-    public static AccountCharacter Five() => new AccountCharacter(" _ ", "|_ ", " _|");
-    public static AccountCharacter Six() => new AccountCharacter(" _ ", "|_ ", "|_|");
-    public static AccountCharacter Seven() => new AccountCharacter(" _ ", "  |", "  |");
-    public static AccountCharacter Eight() => new AccountCharacter(" _ ", "|_|", "|_|");
-    public static AccountCharacter Nine() => new AccountCharacter(" _ ", "|_|", " _|");
+    public static AccountCharacter Zero() => new AccountCharacter(StringForNumber[0]);
+    public static AccountCharacter One() => new AccountCharacter(StringForNumber[1]);
+    public static AccountCharacter Two() => new AccountCharacter(StringForNumber[2]);
+    public static AccountCharacter Three() => new AccountCharacter(StringForNumber[3]);
+    public static AccountCharacter Four() => new AccountCharacter(StringForNumber[4]);
+    public static AccountCharacter Five() => new AccountCharacter(StringForNumber[5]);
+    public static AccountCharacter Six() => new AccountCharacter(StringForNumber[6]);
+    public static AccountCharacter Seven() => new AccountCharacter(StringForNumber[7]);
+    public static AccountCharacter Eight() => new AccountCharacter(StringForNumber[8]);
+    public static AccountCharacter Nine() => new AccountCharacter(StringForNumber[9]);
 
     public string FirstRow { get; init; }
     public string SecondRow { get; init; }
     public string ThirdRow { get; init; }
     public int Value
     {
-        get {
+        get
+        {
             var lookup = new Dictionary<AccountCharacter, int> {
                 {One(), 1},
                 {Two(), 2},
@@ -74,8 +102,13 @@ public class AccountCharacter
             character.ThirdRow == ThirdRow;
     }
 
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(FirstRow, SecondRow, ThirdRow);
+    }
+
     public override string ToString()
     {
-        return $"{Value} = {FirstRow}\n{SecondRow}\n{ThirdRow}";
+        return $"{FirstRow}\n{SecondRow}\n{ThirdRow}";
     }
 }

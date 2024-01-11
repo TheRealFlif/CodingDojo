@@ -48,7 +48,7 @@ public class AccountLine
     public static AccountLine Create(string characterLine)
     {
         var returnValue = new AccountLine();
-        string[] lines = characterLine.Split("\n");
+        string[] lines = characterLine.Split("\r\n");
         for (int i = 0; i < 27; i = i + 3)
         {
             var character = new AccountCharacter(
@@ -60,6 +60,11 @@ public class AccountLine
         }
 
         return returnValue;
+    }
+
+    public IEnumerable<int> ToIntegers()
+    {
+        return _characters.Select(c => c.Value);
     }
 
     public override string ToString()

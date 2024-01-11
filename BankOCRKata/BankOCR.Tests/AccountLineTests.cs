@@ -1,9 +1,11 @@
+using System.Text;
+
 namespace BankOCR;
 
 public class AccountLineTests
 {
     [Test]
-    public void AddCharachter_()
+    public void AddCharacter_()
     {
         //Arrange
         var sut = new AccountLine();
@@ -21,5 +23,25 @@ public class AccountLineTests
         System.Diagnostics.Debug.WriteLine(sut.ToString());
 
         //Assert
+    }
+
+    [Test]
+    public void ToIntegers_OnlyOnes_Returns111111111()
+    {
+        //Arrange
+        var oneRows = AccountCharacter.StringForNumber[1];
+        var stringBuilder = new StringBuilder();
+        stringBuilder.AppendLine(string.Join("", Enumerable.Repeat(oneRows[0], 9)));
+        stringBuilder.AppendLine(string.Join("", Enumerable.Repeat(oneRows[1], 9)));
+        stringBuilder.AppendLine(string.Join("", Enumerable.Repeat(oneRows[2], 9)));
+        var sut = AccountLine.Create(stringBuilder.ToString());
+
+        //Act
+        var actual = sut.ToIntegers();
+
+        //Assert
+        Assert.That(actual.Count, Is.EqualTo(9));
+        Assert.That(actual.All(i => i == 1), Is.True);
+        
     }
 }
