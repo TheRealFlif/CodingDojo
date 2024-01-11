@@ -7,14 +7,16 @@ public class AccountCharacterTests
     {
         //Arrange
         var sut = AccountCharacter.Create(i);
-        
+
         //Assert
         return sut.ToString();
     }
 
     private static class TestData
     {
-        public static IEnumerable<TestCaseData> Characters { get
+        public static IEnumerable<TestCaseData> Characters
+        {
+            get
             {
                 yield return new TestCaseData(0).Returns(AccountCharacter.Zero().ToString());
                 yield return new TestCaseData(1).Returns(AccountCharacter.One().ToString());
@@ -27,7 +29,7 @@ public class AccountCharacterTests
                 yield return new TestCaseData(8).Returns(AccountCharacter.Eight().ToString());
                 yield return new TestCaseData(9).Returns(AccountCharacter.Nine().ToString());
                 yield return new TestCaseData(-1).Returns(AccountCharacter.Blank().ToString());
-            } 
+            }
         }
     }
 }
