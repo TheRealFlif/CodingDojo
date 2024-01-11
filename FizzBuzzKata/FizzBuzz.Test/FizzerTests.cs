@@ -1,4 +1,4 @@
-namespace FizzBuzz.Test;
+namespace FizzBuzz;
 
 public class FizzerTests
 {

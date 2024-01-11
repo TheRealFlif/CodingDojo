@@ -1,18 +1,9 @@
 ﻿namespace FizzBuzz
 {
-    public class Fizzer
+
+    public class Fizzer : ScramblerBase
     {
-        private int _valueToScramble = 3;
-
-        public string Scramble(int value)
-        {
-            var scramble = 
-                value % 3 == 0 || 
-                value.ToString().Contains(_valueToScramble.ToString());
-
-            return scramble
-                ? "Fizz"
-                : value.ToString();
-        }
+        public Fizzer() : base(3, "Fizz")
+        { }
     }
 }
