@@ -1,5 +1,6 @@
-﻿namespace GameOfLife
+﻿namespace GameOfLife;
+
+public class Corner : GameItemBase
 {
-    public class Corner : IGameItem
-    { }
+    public Corner() : base() { }
 }

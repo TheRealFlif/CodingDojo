@@ -1,5 +1,7 @@
-﻿namespace GameOfLife
-{
-    public class Wall : IGameItem
-    { }
+﻿namespace GameOfLife;
+
+public class Wall : GameItemBase
+{   
+    public Wall() :base() { }
 }
+

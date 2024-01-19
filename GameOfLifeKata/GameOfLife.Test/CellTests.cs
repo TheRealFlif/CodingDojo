@@ -23,7 +23,7 @@ public class CellTests
         var neighbour = new Cell();
 
         //Act
-        sut.Add(Position.South, neighbour);
+        sut.Connect(Position.South, neighbour);
 
         //Assert
         Assert.That(sut.At(Position.South), Is.EqualTo(neighbour));
@@ -38,8 +38,8 @@ public class CellTests
         var neighbour = new Cell();
 
         //Act
-        sut.Add(Position.South, neighbour);
-        sut.Add(Position.South, neighbour);
+        sut.Connect(Position.South, neighbour);
+        sut.Connect(Position.South, neighbour);
 
         //Assert
         Assert.That(sut.At(Position.South), Is.EqualTo(neighbour));
@@ -55,8 +55,8 @@ public class CellTests
         var anOtherNeighbour = new Cell();
 
         //Act
-        sut.Add(Position.South, neighbour);
-        var actual = Assert.Throws<Exception>(() => sut.Add(Position.South, anOtherNeighbour));
+        sut.Connect(Position.South, neighbour);
+        var actual = Assert.Throws<Exception>(() => sut.Connect(Position.South, anOtherNeighbour));
 
         //Assert
         Assert.That(actual.Message, Is.EqualTo("Det finns redan ett item på position 'South'"));
