@@ -1,6 +1,6 @@
 ﻿namespace GameOfLife;
 
-public class Cell
+public class Cell : IGameItem
 {
 
     public int NumberOfLivingNeighbours { get; }
